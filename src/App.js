@@ -1,8 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+const Herencia = (props) => {
+  console.log(props.lista);
+  return (
+    <ul>
+      {props.lista.map((l, i) => (
+        <li key={i}>{l}</li>
+      ))}
+    </ul>
+  );
+};
 
 function App() {
+  const [lista, setLista] = useState([
+    "pedro",
+    "luis",
+    "andres",
+    "roxana",
+    "sofia",
+    "aracelly",
+  ]);
+
+  const [nombre, setNombre] = useState("");
+
+  const handleInputChange = (event) => {
+    console.log(event.target.value);
+    setNombre(event.target.value);
+  };
+  const aumentar = () => {
+    if(!nombre)return
+    setLista([...lista, nombre]);
+    setNombre("");
+  };
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +49,15 @@ function App() {
         >
           Learn React
         </a>
+        <input
+          onChange={handleInputChange}
+          required="required"
+          value={nombre}
+          type="text"
+          placeholder="ingrese nombre"
+        />
+        <button onClick={aumentar}>aumentar</button>
+        <Herencia name="Pedro" lista={lista} />
       </header>
     </div>
   );
