@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import css from '../../assets/css/Todo.css'
 
 const Todo = (props) => {

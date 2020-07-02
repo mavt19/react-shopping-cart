@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todo from "./Todo";
-import css from "../../assets/css/Todo.css";
-import TodoForm from "../TodoForm";
+import "../../assets/css/Todo.css";
+import TodoForm from "./TodoForm";
 
 const Todos = () => {
   const data = [
@@ -25,6 +25,8 @@ const Todos = () => {
 
   const [todos, setTodos] = useState(data);
 
+  const [completed, setCompleted] = useState(data.isCompleted)
+
   const addTodo = (valor) => {
     const newTodos = [...todos, { text: valor }];
     setTodos(newTodos);
@@ -34,12 +36,16 @@ const Todos = () => {
    
     
     const newTodos = [...todos];
+    setCompleted(!completed)
+    newTodos[index].isCompleted=completed
+    
     //newTodos[index].isCompleted ? false : true
-    if (!newTodos[index].isCompleted) {
+   /* if (!newTodos[index].isCompleted) {
       newTodos[index].isCompleted =true
     } else {
       newTodos[index].isCompleted =false
     }
+    */
     setTodos(newTodos);
     
   };
