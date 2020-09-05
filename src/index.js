@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/Todo/Shopping/App';
+
 import * as serviceWorker from './serviceWorker';
 import Todos from './components/Todo/Todos';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Todos />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
